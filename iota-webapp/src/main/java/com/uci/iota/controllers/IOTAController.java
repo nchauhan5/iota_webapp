@@ -18,6 +18,7 @@ import com.uci.iota.data.IOTAData;
  *
  */
 @Controller
+@RequestMapping(value = "/")
 public class IOTAController
 {
 

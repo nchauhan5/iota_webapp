@@ -12,9 +12,9 @@
 	href="https://fonts.googleapis.com/css?family=Galada|Ubuntu:400,500,700"
 	rel="stylesheet">
 
-<link href="bootstrap.min.css" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
-<link href="send.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/send.css" rel="stylesheet">
 
 </head>
 </head>
@@ -52,8 +52,8 @@
 						<div class="col-xs-6">
 							<div class="form-group">
 								<form:label path="username">User Name</form:label>
-								<form:input path="username" class="form-control"
-									id="name" placeholder="Enter Name" />
+								<form:input path="username" class="form-control" id="name"
+									placeholder="Enter Name" />
 							</div>
 						</div>
 
