@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ====================================================================== -->
+<!-- Ant build file (http://ant.apache.org/) for Ant 1.6.2 or above.        -->
+<!-- ====================================================================== -->
+
+
+
+<project name="iota-webapp" default="all" basedir=".">
+
+	<!-- ====================================================================== -->
+	<!-- Build environment properties                                           -->
+	<!-- ====================================================================== -->
+
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="../lib/exclude/ant-contrib-0.6.jar"/>
+		</classpath>
+	</taskdef>
+
+	<property name="build.finalName" value="IOTAWebApp"/>
+	<property name="build.dir" value="target"/>
+	<property name="build.outputDir" value="${build.dir}/classes"/>
+	<property name="build.srcDir.0" value="src/main/java"/>
+	<property name="build.configDir.0" value="src/main/webapp/WEB-INF"/>
+	<property name="build.resourceDir.0" value="src/main/resources"/>
+	<property name="build.testResourceDir.0" value="src/test/resources" />
+	<property name="repo.local" value="../lib"/>
+
+
+
+
+	<!-- ====================================================================== -->
+	<!-- Defining classpaths                                                    -->
+	<!-- ====================================================================== -->
+
+	<path id="build.classpath">
+
+		<fileset dir="${repo.local}">
+			<include name="**/*.jar" />
+		</fileset>
+
+	</path>
+
+	<!-- ====================================================================== -->
+	<!-- Cleaning up target                                                     -->
+	<!-- ====================================================================== -->
+
+	<target name="clean" description="Clean the output directory">
+		<delete dir="${build.dir}"/>
+	</target>
+
+	<!-- ====================================================================== -->
+	<!-- Compilation target                                                     -->
+	<!-- ====================================================================== -->
+
+	<target name="compile" description="Compile the code">
+		<mkdir dir="${build.outputDir}" />
+		<javac destdir="${build.outputDir}"
+			nowarn="false"
+			debug="true"
+			optimize="false"
+			deprecation="true"
+			target="1.6"
+			verbose="false"
+			fork="false"
+			source="1.6"
+			includeantruntime="false">
+			<compilerarg value="-Xlint" />
+			<src>
+				<pathelement location="${build.srcDir.0}" />
+			</src>
+			<classpath refid="build.classpath" />
+		</javac>
+	</target>
+
+	<!-- ====================================================================== -->
+	<!-- Package target                                                         -->
+	<!-- ====================================================================== -->
+
+	<target name="all" depends="compile" description="Package the application">
+
+		<copy todir="${build.dir}/${build.finalName}/WEB-INF/lib">
+			<fileset dir="${repo.local}/include">
+				<include name="*.jar"/>
+			</fileset>
+		</copy>
+
+		<war destfile="${build.dir}/${build.finalName}.war" 
+         compress="true" 
+         webxml="src/main/webapp/WEB-INF/web.xml">
+			<lib dir="${build.dir}/${build.finalName}/WEB-INF/lib"/>
+			<classes dir="${build.outputDir}"/>
+			<fileset dir="src/main/webapp" 
+               excludes="WEB-INF/web.xml"/>
+		</war>
+		<delete dir="${build.dir}/${build.finalName}"/>
+	</target>
+
+
+	<!-- ====================================================================== -->
+	<!-- A dummy target for the package named after the type it creates         -->
+	<!-- ====================================================================== -->
+
+	<target name="war" depends="all" description="Builds the war for the application"/>
+
+</project>

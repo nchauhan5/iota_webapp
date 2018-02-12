@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ====================================================================== -->
+<!-- Ant build file (http://ant.apache.org/) for Ant 1.6.2 or above.        -->
+<!-- ====================================================================== -->
+
+
+<project name="assembler-integration" default="all" basedir=".">
+	
+	<!-- ====================================================================== -->
+	<!-- Cleaning up target                                                     -->
+	<!-- ====================================================================== -->
+
+	<target name="clean" description="Clean the output directory">
+		<ant antfile="build_assembler.xml" dir="iota-webapp" target="clean"/>
+		<delete dir="${coveragereport.dir.main}" />
+		<delete dir="${test.report.dir.main}" />
+	</target>
+
+
+	<!-- ====================================================================== -->
+	<!-- Compilation target                                                     -->
+	<!-- ====================================================================== -->
+
+	<target name="compile" description="Compile the code">
+		<ant antfile="build_assembler.xml" dir="iota-webapp" target="compile"/>
+	</target>
+
+
+	<!-- ====================================================================== -->
+	<!-- Package target                                                         -->
+	<!-- ====================================================================== -->
+
+	<target name="all" description="Package the application">
+		<ant antfile="build_assembler.xml" dir="iota-webapp" target="all"/>
+	</target>
+</project>
