@@ -49,6 +49,7 @@ public class IOTAController
 		model.addAttribute("username", iOTAData.getUsername());
 		model.addAttribute("tokensSpent", iOTAData.getTokensSpent());
 		model.addAttribute("carID", iOTAData.getCarID());
+		model.addAttribute("message", iOTAData.getMessage());
 
 		return "result";
 	}

@@ -21,6 +21,10 @@
 			<td>Car ID</td>
 			<td>${carID}</td>
 		</tr>
+		<tr>
+			<td>Message</td>
+			<td>${message}</td>
+		</tr>
 	</table>
 </body>
 

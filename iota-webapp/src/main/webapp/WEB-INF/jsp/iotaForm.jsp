@@ -59,23 +59,25 @@
 
 						<div class="col-xs-6">
 							<div class="form-group">
-								<label for="value">Token Value</label> <input type="number"
-									class="form-control" id="value" placeholder="Value to Send">
+								<form:label path="tokensSpent">Token Value</form:label>
+								<form:input path="tokensSpent" class="form-control" id="value"
+									placeholder="Value to Send" />
 							</div>
 						</div>
 
 						<div class="col-xs-12">
 							<div class="form-group">
-								<label for="address">Car Id</label> <input type="text"
-									class="form-control" id="address" placeholder="Enter car Id">
+								<form:label path="carID">Car Id</form:label>
+								<form:input path="carID" class="form-control" id="address"
+									placeholder="Enter car Id" />
 							</div>
 						</div>
 
 						<div class="col-xs-12">
 							<div class="form-group">
-								<label for="message">Text Area</label>
-								<textarea id="message" class="form-control" rows="3"
-									placeholder="Message to send"></textarea>
+								<form:label path="message">Text Area</form:label>
+								<form:textarea path="message" id="message" class="form-control"
+									rows="3" placeholder="Message to send" />
 							</div>
 						</div>
 

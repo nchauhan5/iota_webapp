@@ -8,6 +8,8 @@
 
 <project name="iota-webapp" default="all" basedir=".">
 
+     <property environment="env"/>
+
 	<!-- ====================================================================== -->
 	<!-- Build environment properties                                           -->
 	<!-- ====================================================================== -->
@@ -95,6 +97,7 @@
                excludes="WEB-INF/web.xml"/>
 		</war>
 		<delete dir="${build.dir}/${build.finalName}"/>
+		<move file="${build.dir}/${build.finalName}.war" todir="${env.TOMCAT_HOME}/webapps/"/>
 	</target>
 
 

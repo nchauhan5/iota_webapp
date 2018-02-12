@@ -15,6 +15,8 @@ public class IOTAData
 
 	private String carID;
 
+	private String message;
+
 	/**
 	 * @return the username
 	 */
@@ -66,5 +68,21 @@ public class IOTAData
 		this.carID = carID;
 	}
 
+	/**
+	 * @return the message
+	 */
+	public String getMessage()
+	{
+		return message;
+	}
+
+	/**
+	 * @param message
+	 *           the message to set
+	 */
+	public void setMessage(String message)
+	{
+		this.message = message;
+	}
 
 }
